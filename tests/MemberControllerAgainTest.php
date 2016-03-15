@@ -17,6 +17,11 @@ class MemberControllerAgainTest extends Illuminate\Foundation\Testing\TestCase
         $test_file_path = base_path(). '/tests/img/file.png';
         $this->assertTrue(file_exists($test_file_path), 'Test file does not exists');
     }
+
+    public function test_test_upload_photo()
+    {
+        
+    }
 }
 
 ?>

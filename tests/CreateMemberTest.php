@@ -1,5 +1,9 @@
 <?php
 
+/*
+http://www.geoffakens.com/2015/02/08/disable-csrf-token-verification-for-laravel-5-unit-tests/
+*/
+
 class CreateMemberTest extends Illuminate\Foundation\Testing\TestCase
 {
     protected $baseUrl = 'localhost:8000';

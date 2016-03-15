@@ -22,7 +22,7 @@ class DeleteMemberTest extends Illuminate\Foundation\Testing\TestCase
         // create a valid member on database
         $data = $this->makeValidData();
         $r_data = array_merge($data, array(
-            '_token'    => Session::token()
+            //'_token'    => Session::token()
         ));
         $this->call('DELETE', '/api/v1/member/'. $data['member']->id, $r_data);
         $this->notSeeInDatabase('members', $data['data']);

@@ -2,6 +2,10 @@
 
 use App\Member;
 
+/*
+http://www.geoffakens.com/2015/02/08/disable-csrf-token-verification-for-laravel-5-unit-tests/
+*/
+
 class NameGenerator {
 	protected $alphabetic;
 
