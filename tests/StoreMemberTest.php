@@ -3,6 +3,8 @@
 use App\Http\Requests\MemberRequest;
 //use Mockery;
 
+//http://www.geoffakens.com/2015/02/08/disable-csrf-token-verification-for-laravel-5-unit-tests/
+
 // mock MemberRequest to test upload_file
 class MockMemberRequest
 {
@@ -50,7 +52,7 @@ class StoreMemberTest extends Illuminate\Foundation\Testing\TestCase
         );
         $new_data = array_merge($data, array(
             'photo'     => null,
-            '_token'    => Session::token()
+            //'_token'    => Session::token()
         ));
         $response = $this->call('POST', '/api/v1/member', $new_data);
         // because of success, this redirect url
