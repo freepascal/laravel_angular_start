@@ -19,7 +19,7 @@ class MemberRequest extends Request
 
             // digits_between:1,2
             'age'       => 'required|integer|min:1|max:99',
-            'photo'     => 'mimes:jpeg,png,gif'
+            'photo'     => 'mimes:jpeg,png,gif|max:10240'
         );
     }
 
