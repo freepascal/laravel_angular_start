@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="libs/angular-route.js"></script>
     <script src="libs/angular-cookies.js"></script>
+    <script src="ng-flow-standalone.min.js"></script>
     <script src="src/app.js"></script>
 </head>
 <body>

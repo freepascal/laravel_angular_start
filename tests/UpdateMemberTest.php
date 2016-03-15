@@ -41,20 +41,17 @@ class AddressGenerator extends NameGenerator {
 }
 
 
-class UpdateMemberTest extends Illuminate\Foundation\Testing\TestCase
+class UpdateMemberTest extends TestCase
 {
-    protected $baseUrl = 'localhost:8000';
     protected $name_generator;
 	protected $addr_generator;
 
-    public function createApplication()
-    {
-        $app = require __DIR__.'/../bootstrap/app.php';
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
-        $this->name_generator = new NameGenerator;
-        $this->addr_generator = new AddressGenerator;
-        return $app;
-    }
+	public function setUp()
+	{
+		parent::setUp();
+		$this->name_generator = new NameGenerator;
+		$this->addr_generator = new AddressGenerator;
+	}
 
     public function testUpdateSuccess()
     {

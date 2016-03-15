@@ -2,29 +2,23 @@
 
 use App\Member;
 
-class DeleteMemberTest extends Illuminate\Foundation\Testing\TestCase
+class DeleteMemberTest extends TestCase
 {
-    protected $baseUrl = 'localhost:8000';
-    protected $name_generator;
-    protected $addr_generator;
-
-    public function createApplication()
+    public function setUp()
     {
-        $app = require __DIR__.'/../bootstrap/app.php';
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+        parent::setUp();
         $this->name_generator = new NameGenerator;
         $this->addr_generator = new AddressGenerator;
-        return $app;
     }
 
     public function testDeleteSuccess()
     {
         // create a valid member on database
         $data = $this->makeValidData();
-        $r_data = array_merge($data, array(
-            //'_token'    => Session::token()
+        $passed_data = array_merge($data, array(
+            '_token'    => Session::token()
         ));
-        $this->call('DELETE', '/api/v1/member/'. $data['member']->id, $r_data);
+        $this->call('DELETE', '/api/v1/member/'. $data['member']->id, $passed_data);
         $this->notSeeInDatabase('members', $data['data']);
     }
 

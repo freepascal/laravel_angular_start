@@ -1,28 +1,27 @@
 <?php
 
 use App\Member;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
 use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class MemberControllerTest extends Illuminate\Foundation\Testing\TestCase
+class MemberControllerTest extends TestCase
 {
-    protected $baseUrl = 'localhost:8000';
-    protected $name_generator;
-    protected $addr_generator;
+    /*
+    One option is to rollback the database after each test and migrate it before the next test.
+    Laravel provides a simple DatabaseMigrations trait that will automatically handle this for you.
+    Simply use the trait on your test class
+    */
+    //use DatabaseMigrations;
 
-    public function createApplication()
+    public function setUp()
     {
-        $app = require __DIR__.'/../bootstrap/app.php';
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+        parent::setUp();
         $this->name_generator = new NameGenerator;
         $this->addr_generator = new AddressGenerator;
-
-        //vfsStreamWrapper::register();
-        return $app;
     }
-
     public function testListMemberSuccess()
     {
         $this->get('/api/v1/member')->seeJson();

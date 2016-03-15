@@ -4,17 +4,8 @@
 http://www.geoffakens.com/2015/02/08/disable-csrf-token-verification-for-laravel-5-unit-tests/
 */
 
-class CreateMemberTest extends Illuminate\Foundation\Testing\TestCase
-{
-    protected $baseUrl = 'localhost:8000';
-
-    public function createApplication()
-    {
-        $app = require __DIR__.'/../bootstrap/app.php';
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
-        return $app;
-    }
-
+class CreateMemberTest extends TestCase
+{    
     public function testCreateViewSuccess()
     {
         $this->get('/api/v1/member/create');

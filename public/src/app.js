@@ -24,7 +24,39 @@ app.directive('fileUpload', function() {
 
 });
 
-app.controller("MemberController", function($scope, $http, $cookies) {
+app.directive('fileModel', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var model = $parse(attrs.fileModel);
+            var modelSetter = model.assign;
+
+            element.bind('change', function(){
+                scope.$apply(function(){
+                    modelSetter(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
+}]);
+
+// https://uncorkedstudios.com/blog/multipartformdata-file-upload-with-angularjs
+app.service('fileUpload', ['$http', function ($http) {
+    this.uploadFileToUrl = function(file, uploadUrl){
+        var fd = new FormData();
+        fd.append('file', file);
+        $http.post(uploadUrl, fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        })
+        .success(function(){
+        })
+        .error(function(){
+        });
+    }
+}]);
+
+app.controller("MemberController", ['$scope', '$http', 'fileUpload', function($scope, $http, fileUpload) {
     $scope.mem_to_edit = {};
 
     $scope.onInitializeOrRefreshPage = function() {
@@ -76,20 +108,14 @@ app.controller("MemberController", function($scope, $http, $cookies) {
     $scope.error_address = [];
     $scope.error_age = [];
     $scope.onSave = function(mem) {
-        console.log("var_photo=" + $scope.photo);
         var p = {
             method: 'PUT',
             url: '/api/v1/member/' + mem.id,
             data: angular.toJson({
                 name:       $scope.var_name,
                 address:    $scope.var_address,
-                age:        $scope.var_age,
+                age:        $scope.var_age
             })
-            /*
-            ,headers: {
-                'X-XSRF-TOKEN': $cookies.get('XSRF-TOKEN')
-            }
-            */
         };
         $http(p)
         .success(function (data) {
@@ -111,4 +137,12 @@ app.controller("MemberController", function($scope, $http, $cookies) {
         console.log("Headers: " + headers);
         console.log("Config: " + config);
     }
-});
+
+    $scope.uploadFile = function(){
+        var file = $scope.myFile;
+        console.log('file is ' );
+        console.dir(file);
+        var uploadUrl = "/up/";
+        fileUpload.uploadFileToUrl(file, uploadUrl);
+    };
+}]);

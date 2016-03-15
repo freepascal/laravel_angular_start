@@ -24,11 +24,9 @@
                         <div class="alert alert-danger">[[ e ]]</div>
                     </div>
                 </div>
-                <!--
-                <div class="form-control">Add another photo
-                    <input type="file" ng-model="var_photo" placeholder="add">
+                <div class="form-control">
+                    <input type="file" file-model="myFile" ng-model="var_photo"/>
                 </div>
-                -->
             </div>
             <div class="panel panel-footer">
                 <button type="button" class="btn btn-primary" ng-click="onSave(mem_to_edit)">Save</button>

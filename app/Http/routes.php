@@ -6,7 +6,7 @@ CSRF protection, and more. (like the global in 5.1)
 */
 Route::group(['middleware' => ['web']], function () {
     Route::resource('api/v1/member', 'MemberController');
-    
+
     Route::get('/', ['as' => 'member_list', function() {
         return view('member.index');
     }]);
