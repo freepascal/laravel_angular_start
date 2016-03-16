@@ -21,5 +21,5 @@ checkout:
         - git submodule update --init
 
 test:
-    override:
+    #override:
         #- phpunit tests # use PHPunit for testing
