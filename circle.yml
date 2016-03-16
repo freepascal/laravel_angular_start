@@ -4,7 +4,8 @@ machine:
         version:
             5.5.9
     environment:
-
+        CIRCLE_ENV: test
+        
 dependencies:
     pre:
 
