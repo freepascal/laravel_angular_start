@@ -22,6 +22,4 @@ checkout:
 
 test:
     override:
-        #- phpunit tests # use PHPunit for testing
-    post:
-        - bundle exec rubocop
+        - phpunit tests # use PHPunit for testing
