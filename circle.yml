@@ -16,5 +16,5 @@ checkout:
 
 test:
     override:
-        - phpunit test/unit-tests # use PHPunit for testing
+        - phpunit tests # use PHPunit for testing
     post:
