@@ -24,9 +24,11 @@
                         <div class="alert alert-danger">[[ e ]]</div>
                     </div>
                 </div>
+                <!--
                 <div class="form-control">
                     <input type="file" file-model="myFile" ng-model="var_photo"/>
                 </div>
+                -->
             </div>
             <div class="panel panel-footer">
                 <button type="button" class="btn btn-primary" ng-click="onSave(mem_to_edit)">Save</button>
@@ -63,7 +65,8 @@
                         <div class="list-group-item"><b>Age</b>: [[ m.age ]]</div>
                     <div>
                     <div class="panel panel-footer">
-                        <button type="button" class="btn btn-primary" ng-click="onSelect(m)">Edit</button>
+                        <button type="button" class="btn btn-primary" ng-click="onSelect(m)">Edit partials</button>
+                        <button type="button" class="btn btn-primary" ng-click="onReconstruct(m)">Edit</button>
                         <button type="button" class="btn btn-warning" ng-click="onDelete(m.id,m)">Delete</button>
                     </div>
                 </div>

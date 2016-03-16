@@ -99,7 +99,12 @@ class MemberController extends Controller
         }
         //if ($member->save()) {
             $member->save();
-            return \Response::make('ok', 200);
+            Session::flash('message', array(
+                'type'  => 'success',
+                'text'  => 'Update member successfully'
+            ));
+            return redirect()->route('member_list');
+            //return \Response::make('ok', 200);
         //}
     }
 

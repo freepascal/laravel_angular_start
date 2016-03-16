@@ -56,7 +56,7 @@ app.service('fileUpload', ['$http', function ($http) {
     }
 }]);
 
-app.controller("MemberController", ['$scope', '$http', 'fileUpload', function($scope, $http, fileUpload) {
+app.controller("MemberController", ['$scope', '$http', 'fileUpload', '$location', function($scope, $http, fileUpload, $location) {
     $scope.mem_to_edit = {};
 
     $scope.onInitializeOrRefreshPage = function() {
@@ -120,8 +120,12 @@ app.controller("MemberController", ['$scope', '$http', 'fileUpload', function($s
         $http(p)
         .success(function (data) {
             $scope.onInitializeOrRefreshPage();
+
             alert("Save successfully");
             onAppDebug(data, status, headers, config);
+            var path = "/";
+            window.location.href = path;
+            window.location.href = path;                     
         })
         .error(function (data, status, headers, config) {
             onAppDebug(data, status, headers, config);
@@ -144,5 +148,10 @@ app.controller("MemberController", ['$scope', '$http', 'fileUpload', function($s
         console.dir(file);
         var uploadUrl = "/up/";
         fileUpload.uploadFileToUrl(file, uploadUrl);
+    };
+
+    $scope.onReconstruct = function(mem) {
+        var path = "/" + mem.id;
+        window.location.href = path;
     };
 }]);

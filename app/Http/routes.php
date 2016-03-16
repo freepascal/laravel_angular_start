@@ -1,5 +1,7 @@
 <?php
 
+use App\Member;
+
 /*
 Assuming you use Laravel 5.2: You'll need to use the web middleware if you need session state,
 CSRF protection, and more. (like the global in 5.1)
@@ -20,6 +22,11 @@ Route::group(['middleware' => ['web']], function () {
         'as'    => 'member_edit',
         'uses'  => 'MemberController@edit'
     ));
+
+    Route::get('/{id}/', function($id) {
+        $member = Member::find($id);
+        return view('member.edit', compact('member'));
+    });
 });
 
 Route::group(['middleware' => 'web'], function () {

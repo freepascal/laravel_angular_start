@@ -64,7 +64,7 @@ class UpdateMemberTest extends TestCase
             'photo'     => null
         );
         $this->call('PUT', '/api/v1/member/'. $data['member']->id, $new_data);
-        $this->assertResponseStatus(200);
+        $this->assertResponseStatus(302); // redirect on success
         $this->seeInDatabase('members', $new_data);
         $this->notSeeInDatabase('members', $data['data']);
     }
