@@ -22,4 +22,4 @@ checkout:
 
 test:
     override:
-        - phpunit tests # use PHPunit for testing
+        #- phpunit tests # use PHPunit for testing
