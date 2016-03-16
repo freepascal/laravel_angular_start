@@ -5,7 +5,7 @@ machine:
             5.5.9
     environment:
         CIRCLE_ENV: test
-        
+
 dependencies:
     pre:
 
@@ -15,4 +15,6 @@ checkout:
         - git submodule update --init
 
 test:
+    override:
+        - phpunit test/unit-tests # use PHPunit for testing
     post:
