@@ -1,13 +1,19 @@
 ## Customize the test machine
 machine:
+    timezone:
+        America/Chicago
     php:
         version:
             5.5.9
     environment:
-        CIRCLE_ENV: test
+        ENVIRONMENT: testing
+        DB_URL: 127.0.0.1
+        DB_NAME: circle_test
+        DB_USER: ubuntu
 
 dependencies:
-    pre:
+    override:
+        - composer install --prefer-source --no-interaction --no-dev
 
 checkout:
     post:
@@ -16,5 +22,6 @@ checkout:
 
 test:
     override:
-        - phpunit tests # use PHPunit for testing
+        #- phpunit tests # use PHPunit for testing
     post:
+        - bundle exec rubocop
