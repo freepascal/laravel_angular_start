@@ -17,8 +17,7 @@ dependencies:
         - npm install
         - npm install -g bower
         - npm install -g gulp
-        - bower install
-        - gulp        
+        - gulp
     pre:
         - echo "memory_limit = 1024M" > ~/.phpenv/versions/5.5.9/etc/conf.d/memory.ini
     post:
