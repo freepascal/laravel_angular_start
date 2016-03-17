@@ -64,7 +64,7 @@ return [
             'prefix' => '',
             'strict' => false,
             'engine' => null,
-            'unix_socket' => '/tmp/mysql.sock'            
+            #'unix_socket' => '/tmp/mysql.sock'            
         ],
 
         'pgsql' => [
