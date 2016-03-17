@@ -6,6 +6,7 @@ machine:
         version:
             5.5.9
     environment:
+        DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
         ENVIRONMENT: testing
         DB_URL: 127.0.0.1
         DB_NAME: circle_test
