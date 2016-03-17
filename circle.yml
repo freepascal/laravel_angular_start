@@ -28,7 +28,7 @@ dependencies:
         - sudo chmod -R 777 public/up/
 test:
     post:
-        - phpunit
+        - phpunit --coverage-html tests/codeception
 
 checkout:
     post:
