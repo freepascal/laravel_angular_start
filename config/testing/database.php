@@ -11,7 +11,8 @@ return array(
             'username'  => getenv('DB_USER'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => ''
+            'prefix'    => '',
+            'unix_socket' => '/tmp/mysql.sock'            
         )
     )
 );
