@@ -15,7 +15,6 @@ dependencies:
     override:
         - composer install --prefer-source --no-interaction
     post:
-        php artisan migrate
 
 test:
     override:
