@@ -6,7 +6,7 @@ machine:
         version:
             5.5.9
     environment:
-        #ENVIRONMENT: testing
+        ENVIRONMENT: testing
         DB_URL: 127.0.0.1
         DB_NAME: circle_test
         DB_USER: ubuntu
@@ -14,6 +14,10 @@ machine:
 dependencies:
     override:
         - composer install --prefer-source --no-interaction --no-dev
+
+test:
+    override:
+        - phpunit tests # use PHPunit for testing
 
 checkout:
     post:
