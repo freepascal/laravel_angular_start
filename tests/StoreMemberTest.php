@@ -97,7 +97,7 @@ class StoreMemberTest extends TestCase
             ->type($data['name'],               $field = 'name')
             ->type($data['address'],           'address')
             ->type($data['age'],               'age')
-            ->attach(public_path('up/small_image.jpg'), 'photo')
+            ->attach(storage_path('/img/file.png'), 'photo')
             ->press('Create');
         $this->seeInDatabase('members', $data);
     }
