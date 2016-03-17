@@ -35,7 +35,7 @@ checkout:
         - git submodule sync
         - git submodule update --init
 
-#database:
-    #override:
-        #- php artisan migrate --force --env=testing --no-interaction -vvv
+database:
+    override:
+        - php artisan migrate --force --env=testing --no-interaction -vvv
         #- php artisan db:seed --force --env=production --no-interaction -vvv
