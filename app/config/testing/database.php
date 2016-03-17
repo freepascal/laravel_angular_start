@@ -5,10 +5,10 @@ return array(
     'connections'   => array(
         'mysql'     => array(
             'driver'    => 'mysql',
-            'host'      => getenv('DB_URL'),
+            'host'      => '127.0.0.1',
             'port'      => 3306,
-            'database'  => getenv('DB_NAME'),
-            'username'  => getenv('DB_USER'),
+            'database'  => 'circle_test',
+            'username'  => 'ubuntu',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
