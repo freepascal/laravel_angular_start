@@ -14,6 +14,11 @@ machine:
 dependencies:
     override:
         - composer install --prefer-source --no-interaction
+        - npm install
+        - npm install -g bower
+        - npm install -g gulp
+        - bower install
+        - gulp        
     pre:
         - echo "memory_limit = 1024M" > ~/.phpenv/versions/5.5.9/etc/conf.d/memory.ini
     post:
@@ -21,8 +26,8 @@ dependencies:
         - sudo chmod -R 775 storage
         - sudo chmod -R 775 bootstrap/cache
 test:
-    override:
-        - phpunit # use PHPunit for testing
+    post:
+        - phpunit
 
 checkout:
     post:
