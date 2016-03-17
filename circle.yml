@@ -24,3 +24,8 @@ checkout:
     post:
         - git submodule sync
         - git submodule update --init
+
+database:
+    override:
+        - php artisan migrate
+        - php artisan db:seed
