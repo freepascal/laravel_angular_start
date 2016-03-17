@@ -36,5 +36,5 @@ checkout:
 
 database:
     override:
-        - php artisan migrate
+        - php artisan migrate --force
         #- php artisan db:seed --force --env=production --no-interaction -vvv
