@@ -10,6 +10,7 @@ machine:
         DB_URL: 127.0.0.1
         DB_NAME: circle_test
         DB_USER: ubuntu
+        DB_URL: 127.0.0.1
 
 dependencies:
     override:
