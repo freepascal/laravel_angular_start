@@ -26,9 +26,11 @@ dependencies:
         - sudo chmod -R 775 storage
         - sudo chmod -R 775 bootstrap/
         - sudo chmod -R 777 public/up/
+        - sudo chmod -R 777 tests/codeception/
 test:
     post:
         - phpunit --coverage-html tests/codeception
+        - sudo mv -r tests/codeception $CIRCLE_ARTIFACTS/
 
 checkout:
     post:
