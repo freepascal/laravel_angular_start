@@ -30,7 +30,7 @@ dependencies:
 test:
     post:
         - phpunit --coverage-html tests/codeception
-        - sudo mv -r tests/codeception $CIRCLE_ARTIFACTS/
+        - sudo mv tests/codeception $CIRCLE_ARTIFACTS/
 
 checkout:
     post:
