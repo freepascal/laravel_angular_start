@@ -14,11 +14,15 @@ machine:
 
 dependencies:
     override:
+        - sudo apt-get install php5-dev php-pear
+        - sudo pecl install xdebug        
         - composer install --prefer-source --no-interaction
         - npm install
         #- npm install -g bower
         #- npm install -g gulp
         #- gulp
+
+
     pre:
         - echo "memory_limit = 1024M" > ~/.phpenv/versions/5.5.9/etc/conf.d/memory.ini
     post:
@@ -30,7 +34,8 @@ dependencies:
 test:
     post:
         - phpunit --coverage-html tests/codeception
-        - sudo mv tests/codeception $CIRCLE_ARTIFACTS/
+        - phpunit --coverage-html $CIRCLE_ARTIFACTS
+        - sudo cp tests/codeception $CIRCLE_ARTIFACTS/
 
 checkout:
     post:
