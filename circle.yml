@@ -13,7 +13,7 @@ machine:
         DB_URL: 127.0.0.1
 
 dependencies:
-    override:    
+    override:
         - composer install --prefer-source --no-interaction
         - npm install
         #- npm install -g bower
@@ -31,9 +31,7 @@ dependencies:
         - sudo chmod -R 777 tests/codeception/
 test:
     post:
-        - phpunit --coverage-html tests/codeception
-        - phpunit --coverage-html $CIRCLE_ARTIFACTS
-        - sudo cp tests/codeception $CIRCLE_ARTIFACTS/
+        - phpunit --coverage-html $CIRCLE_ARTIFACTS        
 
 checkout:
     post:
