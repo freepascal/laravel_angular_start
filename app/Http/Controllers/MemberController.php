@@ -116,4 +116,5 @@ class MemberController extends Controller
             return \Response::make('ok', 200);
         //}
     }
+    @danger section
 }
