@@ -11,4 +11,14 @@ foreach($files as $file) {
     }
 }
 
+// make directory tests/codeception
+mkdir(
+    $path = 'tests/codeception',
+    $mode = 0777,
+    $recursive = true
+);
+
+fopen("tests/codeception/empty", "w");
+
+
 ?>
